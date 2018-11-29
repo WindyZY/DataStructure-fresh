@@ -1,0 +1,20 @@
+﻿  学生成绩管理程序.cpp
+c:\users\心轩xuan\source\repos\学生成绩管理程序\学生成绩管理程序\学生成绩管理程序.cpp(152): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 参见“scanf”的声明
+c:\users\心轩xuan\source\repos\学生成绩管理程序\学生成绩管理程序\学生成绩管理程序.cpp(154): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 参见“scanf”的声明
+c:\users\心轩xuan\source\repos\学生成绩管理程序\学生成绩管理程序\学生成绩管理程序.cpp(156): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 参见“scanf”的声明
+c:\users\心轩xuan\source\repos\学生成绩管理程序\学生成绩管理程序\学生成绩管理程序.cpp(212): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 参见“scanf”的声明
+c:\users\心轩xuan\source\repos\学生成绩管理程序\学生成绩管理程序\学生成绩管理程序.cpp(236): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 参见“scanf”的声明
+c:\users\心轩xuan\source\repos\学生成绩管理程序\学生成绩管理程序\学生成绩管理程序.cpp(274): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 参见“scanf”的声明
+c:\users\心轩xuan\source\repos\学生成绩管理程序\学生成绩管理程序\学生成绩管理程序.cpp(294): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 参见“scanf”的声明
+c:\users\心轩xuan\source\repos\学生成绩管理程序\学生成绩管理程序\学生成绩管理程序.cpp(308): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 参见“scanf”的声明
+c:\users\心轩xuan\source\repos\学生成绩管理程序\学生成绩管理程序\学生成绩管理程序.cpp(344): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1272): note: 参见“scanf”的声明
+c:\users\心轩xuan\source\repos\学生成绩管理程序\学生成绩管理程序\学生成绩管理程序.cpp(180): warning C4101: “d”: 未引用的局部变量
