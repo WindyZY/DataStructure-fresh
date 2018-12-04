@@ -27,8 +27,10 @@ private:
 		for (sum = 0, i = 0; x[i] != '\0'; i++) sum += (int)x[i];
 		return sum % M;
 	}
-	void hashInsert(const Key&, const E&);
-	E hashSearch(const Key&) const;
+
+	void hashInsert(const Key&, const E&) 
+	E hashSearch(const Key&) const 
+
 public:
 	hashdict(int sz, Key k) { // "k" defines an empty slot
 		M = sz;
@@ -53,7 +55,6 @@ public:
 		hashInsert(k, it);
 		currcnt++;
 	}
-	// I took this code out of the book, it doesn't add anything
 
 	// remove not implemented
 	E remove(const Key& K) { return NULL; }
