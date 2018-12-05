@@ -52,7 +52,7 @@ private:
 	}
 
 	int p(Key k, int i) {//Used for probing
-		cout << "1.LinearProbe  2.QuadraicProbe  3.PseudorandomProbe" << endl;
+		/*cout << "1.LinearProbe  2.QuadraicProbe  3.PseudorandomProbe" << endl;
 		int probe;
 		cin >> probe;
 		switch (probe)
@@ -69,7 +69,11 @@ private:
 		default:
 			cout << "WRONG!" << endl;
 			return -1;
-		}
+		}*/
+
+		return i;//Linear Probing
+		//return i*H2(k);//Quadraic Probing
+		//return rand();//Pseudorandom Probing
 	}
 
 	// Insert e into hash table HT
@@ -93,8 +97,10 @@ private:
 		for (int i = 1; (k != (HT[pos]).key()) &&
 			(EMPTYKEY != (HT[pos]).key()); i++)
 			pos = (home + p(k, i)) % M; // Next on probe sequence
-		if (k == (HT[pos]).key())     // Found it
+		if (k == (HT[pos]).key()) {    // Found it
+			cout << "The position of the record is " << pos << endl;
 			return (HT[pos]).value();
+		}
 		else return NULL;            // k not in hash table
 	}
 
@@ -132,18 +138,17 @@ public:
 
 	// remove not implemented
 	E remove(const Key& K) { 
-		int pos = h(K);
 		if (K == EMPTYKEY)
 			return NULL;
-
+		int pos = h(K);
 		for (int i = 0; i < size(); i++)
 		{
 			if (HT[pos].key() == K)  //Remove it when found
 			{
-				E tmp = HT[pos].value();
+				cout << "Already removed " << pos << ":" << HT[pos].key() << "--";
 				HT[pos].setKey(EMPTYKEY);  //Set the slot as empty
 				currcnt--;
-				return tmp;   //Return the value
+				return HT[pos].value();   //Return the value
 			}
 			pos = (h(K) + p(K, i)) % M;  //Check the next position
 		}
@@ -154,17 +159,18 @@ public:
 		if (currcnt == 0)
 		{
 			cout << "Hash table is empty!" << endl;
-			exit(1);
+			return NULL;
 		}
 			
 		int i;
 		for (i = 0; i<M; i++)
-			if ((HT[i]).key() != EMPTYKEY) {
+			if ((HT[i]).key() != EMPTYKEY) { //Find the first slot that is not empty
+				cout << "Already removed " << i << ":" << HT[i].key() << "--";
+				//Remove it
 				(HT[i]).setKey(EMPTYKEY);
 				currcnt--;
-				break;
+				return (HT[i]).value();
 			}
-		return (HT[i]).value();
 	}
 
 	void clear() { // Clear the dictionary
@@ -173,8 +179,13 @@ public:
 	}
 	
 	void print() {  //Print the hash table
-		for (int i = 0; i < M; i++)
-			cout << HT[i].key() << "--" << HT[i].value() << endl;
+		cout << "The hash table is:" << endl;
+		for (int i = 0; i < M; i++) {
+			if (HT[i].key() == -1)
+				cout << i << ":" << "EMPTY!" << endl;
+			else
+				cout << i << ":" << HT[i].key() << "--" << HT[i].value() << endl;
+		}
 	}
 };
 
