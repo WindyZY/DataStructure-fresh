@@ -1,3 +1,9 @@
+/****************************************
+Author:ÖÜÑþ201730685202
+Date:2018-12-02
+Description:Implement for KVpair
+*****************************************/
+
 #pragma once
 #ifndef KVPAIR_H
 #define KVPAIR_H

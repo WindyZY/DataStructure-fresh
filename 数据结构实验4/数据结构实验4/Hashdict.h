@@ -1,3 +1,9 @@
+/****************************************
+Author:ÖÜÑþ201730685202
+Date:2018-12-02
+Description:Implement for hashing using three kinds of probing
+*****************************************/
+
 #pragma once
 #ifndef HASHDICT_H
 #define HASHDICT_H
@@ -45,20 +51,20 @@ private:
 		return (sum + 1) % (M - 2);
 	}
 
-	int p(Key k, int i) {//
+	int p(Key k, int i) {//Used for probing
 		cout << "1.LinearProbe  2.QuadraicProbe  3.PseudorandomProbe" << endl;
 		int probe;
 		cin >> probe;
 		switch (probe)
 		{
 		case 1:
-			return (h(k) + i) % M;
+			return i;
 			break;
 		case 2:
-			return (h(k) + i*H2(k)) % M;
+			return i*H2(k);
 			break;
 		case 3:
-			return (h(k) + rand()) % M;
+			return rand();
 			break;
 		default:
 			cout << "WRONG!" << endl;
@@ -72,7 +78,9 @@ private:
 		int pos = home = h(k);        // Init probe sequence
 		for (int i = 1; EMPTYKEY != (HT[pos]).key(); i++) {
 			pos = (home + p(k, i)) % M; // probe
-			Assert(k != (HT[pos]).key(), "Duplicates not allowed");
+			//Assert(k != (HT[pos]).key(), "Duplicates not allowed");
+			if (k == (HT[pos]).key())
+				cout << "Duplicates not allowed!" << endl;
 		}
 		KVpair<Key, E> temp(k, e);
 		HT[pos] = temp;
@@ -107,19 +115,48 @@ public:
 	{
 		return hashSearch(k);
 	}
+
 	int size() { return currcnt; } // Number stored in table
 								   
 	void insert(const Key& k, const E& it) {// Insert element "it" with Key "k" into the dictionary.
-		Assert(currcnt < M, "Hash table is full");
+		//Assert(currcnt < M, "Hash table is full");
+		if (currcnt >= M)
+		{
+			cout << "Hash table is full!" << endl;
+			exit(1);
+		}
+			
 		hashInsert(k, it);
 		currcnt++;
 	}
 
 	// remove not implemented
-	E remove(const Key& K) { return NULL; }
+	E remove(const Key& K) { 
+		int pos = h(K);
+		if (K == EMPTYKEY)
+			return NULL;
+
+		for (int i = 0; i < size(); i++)
+		{
+			if (HT[pos].key() == K)  //Remove it when found
+			{
+				E tmp = HT[pos].value();
+				HT[pos].setKey(EMPTYKEY);  //Set the slot as empty
+				currcnt--;
+				return tmp;   //Return the value
+			}
+			pos = (h(K) + p(K, i)) % M;  //Check the next position
+		}
+	}
 
 	E removeAny() {  // Remove the first element
-		Assert(currcnt != 0, "Hash table is empty");
+		//Assert(currcnt != 0, "Hash table is empty");
+		if (currcnt == 0)
+		{
+			cout << "Hash table is empty!" << endl;
+			exit(1);
+		}
+			
 		int i;
 		for (i = 0; i<M; i++)
 			if ((HT[i]).key() != EMPTYKEY) {
@@ -133,6 +170,11 @@ public:
 	void clear() { // Clear the dictionary
 		for (int i = 0; i<M; i++) (HT[i]).setKey(EMPTYKEY);
 		currcnt = 0;
+	}
+	
+	void print() {  //Print the hash table
+		for (int i = 0; i < M; i++)
+			cout << HT[i].key() << "--" << HT[i].value() << endl;
 	}
 };
 

@@ -1,11 +1,13 @@
+#ifndef ADT_H
+#define ADT_H
+
 // From the software distribution accompanying the textbook
 // "A Practical Introduction to Data Structures and Algorithm Analysis,
 // Third Edition (C++)" by Clifford A. Shaffer.
 // Source code Copyright (C) 2007-2011 by Clifford A. Shaffer.
 
 // The Dictionary abstract class.
-#ifndef ADT_H
-#define ADT_H
+
 template <typename Key, typename E>
 class  Dictionary {
 private:
