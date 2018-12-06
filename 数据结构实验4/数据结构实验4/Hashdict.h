@@ -27,6 +27,7 @@ private:
 	int M;        // Size of HT
 	int currcnt;  // The current number of elements in HT
 	Key EMPTYKEY; // User-supplied key value for an empty slot
+	int Perm[100];  //For pseudo-random probing
 
 	int p(Key K, int i) const // Probe using linear probing
 	{
@@ -41,14 +42,14 @@ private:
 	}
 
 	int H2(int x) {//Hash function used in probing for int keys
-		return (x + 1)%(M - 2);
+		return x*x;
 	}
 
 	int H2(char* x) const {//Hash function used in probing for character keys
 		int i, sum;
 		for (sum = 0, i = 0; x[i] != '\0'; i++)
 			sum += (int)x[i];
-		return (sum + 1) % (M - 2);
+		return sum*sum;
 	}
 
 	int p(Key k, int i) {//Used for probing
@@ -71,9 +72,9 @@ private:
 			return -1;
 		}*/
 
-		return i;//Linear Probing
-		//return i*H2(k);//Quadraic Probing
-		//return rand();//Pseudorandom Probing
+		//return i;//Linear Probing
+		//return H2(i);//Quadraic Probing
+		return Perm[i-1];//Pseudorandom Probing
 	}
 
 	// Insert e into hash table HT
@@ -112,6 +113,8 @@ public:
 		HT = new KVpair<Key, E>[sz]; // Make HT of size sz
 		for (int i = 0; i<M; i++)
 			(HT[i]).setKey(EMPTYKEY); // Initialize HT
+		for (int j = 0; j < M; j++)
+			Perm[j] = rand();
 	}
 
 	~hashdict() { delete HT; }

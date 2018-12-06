@@ -33,22 +33,23 @@ int main()
 
 	//Test print function
 	h->print();
+	cout << endl;
 
 	//Test removing function
-	cout << "Enter the record you want to remove:";
+	cout << "Enter the key of the record you want to remove:";
 	Key k1;
 	cin >> k1;
 	cout << h->remove(k1) << endl;
 	cout <<"Remove the first record:";
 	cout << h->removeAny() << endl;
-	cout << "Remove finished! *********************************" << endl << endl;
+	cout << "Remove finished! ***********************************" << endl << endl;
 
 	//Test search function
 	cout << "Enter the key of the record you want to find:";
 	Key k2;
 	cin >> k2;
 	cout << "The record of the key is " << h->find(k2) << endl;
-	cout << "Searching finished! ********************************" << endl << endl;
+	cout << "Searching finished! *********************************" << endl << endl;
 
 	//Test print function
 	h->print();
