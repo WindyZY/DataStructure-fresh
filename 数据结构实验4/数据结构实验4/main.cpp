@@ -22,6 +22,7 @@ int main()
 	Key k;
 	E e;
 	cout << "Enter the records need inserting,-1 to quit!" << endl;
+	//double start = clock();
 	while (cin >> k)
 	{
 		if (k == -1)
@@ -30,6 +31,9 @@ int main()
 		h->insert(k, e);
 	}
 	cout << "Insertion finished! *******************************" << endl << endl;
+
+	//double end = clock();
+	//cout << (double)(end - start) / CLOCKS_PER_SEC << endl;
 
 	//Test print function
 	h->print();

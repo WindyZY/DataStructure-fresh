@@ -41,7 +41,11 @@ private:
 		return sum % M;
 	}
 
-	int H2(int x) {//Hash function used in probing for int keys
+	/*int H1(int x) {//Hash function uesd in linear probing for int keys
+		return (x + 1) % M;
+	}*/
+
+	int H2(int x) {//Hash function used in quadraric probing for int keys
 		return x*x;
 	}
 
